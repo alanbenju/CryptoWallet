@@ -31,8 +31,20 @@ const port = 3000;
 const user = require('./routes/user.route');
 app.use('/user', user);
 
-const coin = require('./routes/coin.route');
-app.use('/', coin);
+const crypto = require('./routes/crypto.route');
+app.use('/crypto', crypto);
+
+const deposit = require('./routes/deposit.route');
+app.use('/deposit', deposit);
+
+const order = require('./routes/order.route');
+app.use('/order', order);
+
+const symbolBalance = require('./routes/symbolBalance.route');
+app.use('/symbolBalance', symbolBalance);
+
+const userBalance = require('./routes/userBalance.route');
+app.use('/userBalance', userBalance);
 
 
 app.listen(port, () => console.log('Server running...'));

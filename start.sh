@@ -33,5 +33,5 @@ echo "Dependencies Installed"
 
 
 echo "Starting server..."
-node app.js
+nodemon app.js
 echo "Server started on port 3000"

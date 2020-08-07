@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const UserBalance = require('../models/userBalance.model');
 
 exports.find = function (req, res) {
     User.find(function (err, users) {
@@ -32,7 +33,19 @@ exports.create = function (req, res) {
             console.log(err)
             return res.status(409).send(err)
         }
-        return res.send({"result":'User created'})
+        let userBalance = new UserBalance(
+            {
+                total: 0,
+                userId: user.id
+            }
+        );
+        userBalance.save(userBalance,(err)=>{
+            if (err){
+                console.log(err)
+                return res.status(409).send(err)
+            }
+            return res.send({"result":'User created'})
+        })        
     })
 };
 
