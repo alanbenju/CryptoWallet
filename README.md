@@ -1,6 +1,6 @@
-# node-mongo
+# Crypto wallet
 
-> Example of a dockerized Node server with Mongo
+> Dockerized Node server with Mongo
 
 ## Start
 
@@ -37,35 +37,5 @@ Run on the terminal the following command:
 ```bash
 mocha tests
 ``` 
-
-## Endpoints
-
-- Get /:coin/quote
-    coin: dolar/pesos/real
-
-- Get /user
-
-- Get /user/:id
-
-- Put /user/:id
-
-- Post /user
-
-
-## Script to create users
-
-- Using docker
-    Get into the mongo docker
-    ```bash
-    cd scripts/
-    ./mongoScript.sh
-    ```    
-
-- Using start file
-    ```bash
-    cd scripts/
-    ./mongoScript.sh
-    ```    
-
 ## IMPORTANT
 You can't share the database between the server lifted locally with the one served with docker
