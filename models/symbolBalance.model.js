@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 let SymbolBalanceSchema = new Schema({
     id: Schema.Types.ObjectId,
     symbol: {type: String, required: true},
-    avgPriceBought: {type: SchemaTypes.Decimal128, default: 0},
-    quantity: {type: SchemaTypes.Decimal128, default: 0},
+    avgPriceBought: {type: Number, default: 0},
+    quantity: {type: Number, default: 0},
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 

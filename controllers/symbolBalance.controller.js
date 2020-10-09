@@ -1,7 +1,7 @@
 const SymbolBalance = require('../models/symbolBalance.model');
 
 exports.find = function (req, res) {
-    SymbolBalance.find(function (err, symbolBalances) {
+    SymbolBalance.find({user: req.query.userId},function (err, symbolBalances) {
         if (err) return next(err);
         symbolBalances = symbolBalances.map((symbolBalance)=>{
             return symbolBalance.toObject({ versionKey: false })
@@ -11,7 +11,7 @@ exports.find = function (req, res) {
 };
 
 exports.findOne = function (req, res) {
-    SymbolBalance.findById(req.params.id,function (err, symbolBalance) {
+    SymbolBalance.find({user: req.params.userId},function (err, symbolBalance) {
         if (err) return next(err);
         if (!symbolBalance) return res.status(404).send("SymbolBalance not found")
         return res.send(symbolBalance.toObject({ versionKey: false }));

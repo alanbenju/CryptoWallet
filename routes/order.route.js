@@ -9,6 +9,7 @@ router.put('/:id', order_controller.update);
 router.post('/buy', order_controller.buy);
 router.post('/sell', order_controller.sell);
 router.delete('/:id', order_controller.delete);
+router.post('/', order_controller.create);
 
 
 module.exports = router;

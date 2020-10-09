@@ -1,5 +1,5 @@
 const Deposit = require('../models/deposit.model');
-const UserBalance = require('../models/userBalance.model');
+const User = require('../models/user.model');
 
 exports.find = function (req, res) {
     Deposit.find(function (err, deposits) {
@@ -33,13 +33,13 @@ exports.create = function (req, res) {
             console.log(err)
             return res.status(409).send(err)
         }
-        UserBalance.find({ user: req.body.userId }, (err, userBalance) => {
+        User.find({ id: req.body.userId }, (err, user) => {
             if (err) {
                 console.log(err)
                 return res.status(409).send(err)
             }
-            userBalance.amount += deposit.amount
-            userBalance.save(userBalance, (err) => {
+            user.balance += deposit.amount
+            user.save(user, (err) => {
                 if (err) {
                     console.log(err)
                     return res.status(409).send(err)

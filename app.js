@@ -43,8 +43,4 @@ app.use('/order', order);
 const symbolBalance = require('./routes/symbolBalance.route');
 app.use('/symbolBalance', symbolBalance);
 
-const userBalance = require('./routes/userBalance.route');
-app.use('/userBalance', userBalance);
-
-
 app.listen(port, () => console.log('Server running...'));
